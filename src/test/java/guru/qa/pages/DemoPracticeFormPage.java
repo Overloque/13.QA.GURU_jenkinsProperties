@@ -105,25 +105,21 @@ public class DemoPracticeFormPage {
         return this;
     }
 
-    public DemoPracticeFormPage setState() {
+    public DemoPracticeFormPage setState(String value) {
         stateInput.click();
-
-        return this;
-    }
-
-    public DemoPracticeFormPage setStateCity(String value) {
         stateCityInput.$(byText(value)).click();
 
         return this;
     }
 
-    public DemoPracticeFormPage setCity() {
+    public DemoPracticeFormPage setCity(String value) {
         cityInput.click();
+        stateCityInput.$(byText(value)).click();
 
         return this;
     }
 
-    public void submitButton() {
+    public void submitForm() {
         submitButton.click();
     }
 
