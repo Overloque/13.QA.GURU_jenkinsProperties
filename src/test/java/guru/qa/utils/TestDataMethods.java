@@ -8,72 +8,72 @@ import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class TestDataMethods {
-    private final static Faker faker = new Faker(new Locale("en"));
-    private final static Date birthday = faker.date().birthday();
+    private final Faker faker = new Faker(new Locale("en"));
+    private final Date birthday = faker.date().birthday();
 
     //метод getRandomInt оставлю здесь, на всякий случай, в программе нигде не использовался
     public static int getRandomInt(int min, int max) {
         return ThreadLocalRandom.current().nextInt(min, max);
     }
 
-    public static String getRandomFirstName() {
+    public String getRandomFirstName() {
         return faker.name().firstName();
     }
 
-    public static String getRandomLastName() {
+    public String getRandomLastName() {
         return faker.name().lastName();
     }
 
-    public static String getRandomUserEmail() {
+    public String getRandomUserEmail() {
         return faker.internet().emailAddress();
     }
 
-    public static String getRandomGender() {
+    public String getRandomGender() {
         String[] genders = {"Male", "Female", "Other"};
         return faker.options().option(genders);
     }
 
-    public static String getRandomUserPhone() {
-        return faker.numerify("##########");
+    public String getRandomUserPhone() {
+        return faker.phoneNumber().subscriberNumber(10);
     }
 
-    public static String getRandomDay() {
+    public String getRandomDay() {
         return new SimpleDateFormat("dd").format(birthday);
     }
 
-    public static String getRandomMonth() {
+    public String getRandomMonth() {
         return new SimpleDateFormat("MMMM", Locale.ENGLISH).format(birthday);
     }
 
-    public static String getRandomYear() {
+    public String getRandomYear() {
         return new SimpleDateFormat("yyyy", Locale.ENGLISH).format(birthday);
     }
 
-    public static String getRandomSubject() {
+    public String getRandomSubject() {
         String[] subjects = {"English", "Chemistry", "Computer Science", "Commerce", "Economics",
                 "Social Studies", "Arts", "History", "Maths", "Accounting", "Physics", "Biology", "Hindi", "Civics"};
         return faker.options().option(subjects);
     }
 
-    public static String getRandomHobbie() {
+    public String getRandomHobbie() {
         String[] hobbies = {"Sports", "Reading", "Music"};
         return faker.options().option(hobbies);
     }
 
-    public static String getRandomCurrentAddress() {
+    public String getRandomCurrentAddress() {
         return faker.address().fullAddress();
     }
 
-    public static String getRandomPermanentAddress() {
+    public String getRandomPermanentAddress() {
         return faker.address().secondaryAddress();
     }
 
-    public static String getRandomState() {
+    public String getRandomState() {
         String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
         return faker.options().option(states);
     }
 
-    public static String getRandomCity(String state) {
+    public String getRandomCity(String state) {
         switch (state) {
             case "NCR" -> {
                 String[] cities = {"Delhi", "Gurgaon", "Noida"};

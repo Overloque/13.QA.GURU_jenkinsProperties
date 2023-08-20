@@ -1,24 +1,25 @@
 package guru.qa.utils;
 
 public class TestDataVariables {
+    TestDataMethods testDataMethods = new TestDataMethods();
     public String
-            userFirstName = TestDataMethods.getRandomFirstName(),
-            userLastName = TestDataMethods.getRandomLastName(),
-            userEmail = TestDataMethods.getRandomUserEmail(),
-            userGender = TestDataMethods.getRandomGender(),
-            userNumber = TestDataMethods.getRandomUserPhone(),
-            userBirthDay = TestDataMethods.getRandomDay(),
-            userBirthMonth = TestDataMethods.getRandomMonth(),
-            userBirthYear = TestDataMethods.getRandomYear(),
-            userSubject = TestDataMethods.getRandomSubject(),
-            userHobbie = TestDataMethods.getRandomHobbie(),
-            userCurrentAddress = TestDataMethods.getRandomCurrentAddress(),
+            userFirstName = testDataMethods.getRandomFirstName(),
+            userLastName = testDataMethods.getRandomLastName(),
+            userEmail = testDataMethods.getRandomUserEmail(),
+            userGender = testDataMethods.getRandomGender(),
+            userNumber = testDataMethods.getRandomUserPhone(),
+            userBirthDay = testDataMethods.getRandomDay(),
+            userBirthMonth = testDataMethods.getRandomMonth(),
+            userBirthYear = testDataMethods.getRandomYear(),
+            userSubject = testDataMethods.getRandomSubject(),
+            userHobbie = testDataMethods.getRandomHobbie(),
+            userCurrentAddress = testDataMethods.getRandomCurrentAddress(),
             userPicture = "image.png",
-            userState = TestDataMethods.getRandomState(),
-            userCity = TestDataMethods.getRandomCity(userState),
+            userState = testDataMethods.getRandomState(),
+            userCity = testDataMethods.getRandomCity(userState),
             userFullName = userFirstName + " " + userLastName,
             userFullBirthDay = userBirthDay + " " + userBirthMonth + "," + userBirthYear,
             userStateCity = userState + " " + userCity,
-            userPermanentAddress = TestDataMethods.getRandomPermanentAddress(),
+            userPermanentAddress = testDataMethods.getRandomPermanentAddress(),
             tableTitle = "Thanks for submitting the form";
 }
