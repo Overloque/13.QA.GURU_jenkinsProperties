@@ -1,6 +1,6 @@
-package demo.qa.tests;
+package guru.qa.tests;
 
-import demo.qa.pages.TextBoxPage;
+import guru.qa.pages.TextBoxPage;
 import org.junit.jupiter.api.Test;
 
 public class TextBoxTests extends TestBase {
@@ -9,7 +9,6 @@ public class TextBoxTests extends TestBase {
     @Test
     void checkFormTest() {
         //Заполнение форм
-
         textBoxPage
                 .openPage()
                 .setFullName("Michael Woods")

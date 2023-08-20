@@ -1,8 +1,8 @@
-package demo.qa.pages;
+package guru.qa.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import demo.qa.pages.components.CalendarComponent;
-import demo.qa.pages.components.TableComponent;
+import guru.qa.pages.components.CalendarComponent;
+import guru.qa.pages.components.TableComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;

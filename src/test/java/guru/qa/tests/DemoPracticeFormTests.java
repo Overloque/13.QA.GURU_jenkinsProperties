@@ -1,6 +1,6 @@
-package demo.qa.tests;
+package guru.qa.tests;
 
-import demo.qa.pages.DemoPracticeFormPage;
+import guru.qa.pages.DemoPracticeFormPage;
 import org.junit.jupiter.api.Test;
 
 
