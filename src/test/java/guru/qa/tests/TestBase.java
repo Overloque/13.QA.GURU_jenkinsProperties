@@ -8,14 +8,12 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.junit.jupiter.params.provider.Arguments;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static org.asynchttpclient.util.HttpConstants.Methods.OPTIONS;
 
 public class TestBase {
     @BeforeAll
@@ -26,9 +24,9 @@ public class TestBase {
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.of(
-                "enableVNC", true,
-                "enableVideo", true
+        capabilities.setCapability("selenoid:options", Stream.of(
+                Arguments.of("enableVNC", true),
+                Arguments.of("enableVideo", true)
         ));
 
         Configuration.browserCapabilities = capabilities;
