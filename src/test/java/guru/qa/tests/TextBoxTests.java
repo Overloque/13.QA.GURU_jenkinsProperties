@@ -2,28 +2,41 @@ package guru.qa.tests;
 
 import guru.qa.pages.TextBoxPage;
 import guru.qa.utils.TestDataVariables;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static io.qameta.allure.Allure.step;
+
+@Tag("form")
+@Feature("Заполнение формы и проверка её полей")
+@Owner("Overloque")
 public class TextBoxTests extends TestBase {
     TextBoxPage textBoxPage = new TextBoxPage();
     TestDataVariables testDataVariables = new TestDataVariables();
 
     @Test
+    @DisplayName("Заполнение формы TextBoxForm на сайте https://demoqa.com и проверка значений полей после подтверждения отправки формы")
+    @Severity(SeverityLevel.NORMAL)
+    @Link(value = "demoqa", url = "https://demoqa.com/")
     void checkFormTest() {
-        //Заполнение форм
-        textBoxPage
-                .openPage()
-                .setFullName(testDataVariables.userFirstName + " " + testDataVariables.userLastName)
-                .setEmail(testDataVariables.userEmail)
-                .setCurrentAddress(testDataVariables.userCurrentAddress)
-                .setPermanentAddress(testDataVariables.userPermanentAddress)
-                .submit();
+        step("Заполнение формы", () -> {
+            textBoxPage
+                    .openPage()
+                    .setFullName(testDataVariables.userFirstName + " " + testDataVariables.userLastName)
+                    .setEmail(testDataVariables.userEmail)
+                    .setCurrentAddress(testDataVariables.userCurrentAddress)
+                    .setPermanentAddress(testDataVariables.userPermanentAddress)
+                    .submit();
+        });
 
-        //Проверка форм
-        textBoxPage
-                .checkResult(testDataVariables.userFullName)
-                .checkResult(testDataVariables.userEmail)
-                .checkResult(testDataVariables.userCurrentAddress)
-                .checkResult(testDataVariables.userPermanentAddress);
+        step("Проверка соответствия значения полей формы", () -> {
+            textBoxPage
+                    .checkResult(testDataVariables.userFullName)
+                    .checkResult(testDataVariables.userEmail)
+                    .checkResult(testDataVariables.userCurrentAddress)
+                    .checkResult(testDataVariables.userPermanentAddress);
+        });
     }
 }

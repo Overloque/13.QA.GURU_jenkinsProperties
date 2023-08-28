@@ -1,5 +1,22 @@
 plugins {
     id 'java-library'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+def allureVersion = "2.23.0"
+
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set(allureVersion)
+            }
+        }
+    }
 }
 
 repositories {
@@ -10,13 +27,24 @@ group 'guru.qa'
 version '1.0'
 
 dependencies {
-    testImplementation (
+    testImplementation(
             'com.codeborne:selenide:6.16.0',
             'com.github.javafaker:javafaker:1.0.2',
-            'org.junit.jupiter:junit-jupiter:5.9.3'
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            'org.junit.jupiter:junit-jupiter:5.9.3',
     )
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 test {
     useJUnitPlatform()
+}
+
+task form_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("form")
+    }
 }
