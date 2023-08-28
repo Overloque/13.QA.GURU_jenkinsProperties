@@ -16,7 +16,6 @@ public class DemoPracticeFormTests extends TestBase {
     DemoPracticeFormPage demoPracticeFormPage = new DemoPracticeFormPage();
     TestDataVariables testDataVariables = new TestDataVariables();
 
-
     @Test
     @DisplayName("Заполнение формы DemoPracticeForm на сайте https://demoqa.com и проверка значений полей после подтверждения отправки формы")
     @Severity(SeverityLevel.NORMAL)

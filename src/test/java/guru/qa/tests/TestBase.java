@@ -33,12 +33,12 @@ public class TestBase {
 
     @BeforeEach
     void setUp() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach
     void afterEach() {
-        Attach.screenShotAs("LastScreenshot");
+        Attach.screenShotAs("Last Screenshot");
         Attach.pageSource();
         Attach.browserConsoleLog();
         Attach.addVideo();
