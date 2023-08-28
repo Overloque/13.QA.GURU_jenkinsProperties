@@ -8,12 +8,10 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.params.provider.Arguments;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
