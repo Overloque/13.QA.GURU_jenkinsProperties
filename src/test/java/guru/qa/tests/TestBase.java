@@ -8,11 +8,14 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static org.asynchttpclient.util.HttpConstants.Methods.OPTIONS;
 
 public class TestBase {
     @BeforeAll
@@ -22,17 +25,22 @@ public class TestBase {
         Configuration.pageLoadStrategy = "eager";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
-        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("selenoid:options", Map.of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        ChromeOptions options = new ChromeOptions();
 
-        Configuration.browserCapabilities = desiredCapabilities;
+        options.addArguments(OPTIONS);
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        Map<String, Object> selenoidOptions = new HashMap<>();
+
+        selenoidOptions.put("enableVNC", true);
+        selenoidOptions.put("enableVideo", false);
+
+        capabilities.setCapability("selenoid:options", selenoidOptions);
+        Configuration.browserCapabilities = capabilities;
     }
 
     @BeforeEach
-    void setUp() {
+    void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
