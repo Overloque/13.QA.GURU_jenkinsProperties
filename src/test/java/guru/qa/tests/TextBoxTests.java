@@ -21,13 +21,20 @@ public class TextBoxTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @Link(value = "demoqa", url = "https://demoqa.com/")
     void checkFormTest() {
+        step("Открытие сайта с формой для заполнения", () -> {
+            textBoxPage.openPage();
+        });
         step("Заполнение формы", () -> {
             textBoxPage
                     .openPage()
                     .setFullName(testDataVariables.userFirstName + " " + testDataVariables.userLastName)
                     .setEmail(testDataVariables.userEmail)
                     .setCurrentAddress(testDataVariables.userCurrentAddress)
-                    .setPermanentAddress(testDataVariables.userPermanentAddress)
+                    .setPermanentAddress(testDataVariables.userPermanentAddress);
+        });
+
+        step("Подтверждение формы", () -> {
+            textBoxPage
                     .submit();
         });
 

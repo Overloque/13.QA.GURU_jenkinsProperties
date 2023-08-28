@@ -22,10 +22,13 @@ public class DemoPracticeFormTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @Link(value = "demoqa", url = "https://demoqa.com/")
     void checkFormTest() {
-        step("Заполнение формы", () -> {
+        step("Открытие сайта с формой для заполнения", () -> {
             demoPracticeFormPage
                     .openPage()
-                    .removeBanner()
+                    .removeBanner();
+        });
+        step("Заполнение формы", () -> {
+            demoPracticeFormPage
                     .setFirstName(testDataVariables.userFirstName)
                     .setLastName(testDataVariables.userLastName)
                     .setUserEmail(testDataVariables.userEmail)
@@ -38,7 +41,11 @@ public class DemoPracticeFormTests extends TestBase {
                     .setUploadPicture(testDataVariables.userPicture)
                     .setCurrentAddress(testDataVariables.userCurrentAddress)
                     .setState(testDataVariables.userState)
-                    .setCity(testDataVariables.userCity)
+                    .setCity(testDataVariables.userCity);
+        });
+
+        step("Подтверждение формы", () -> {
+            demoPracticeFormPage
                     .submitForm();
         });
 
