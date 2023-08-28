@@ -41,6 +41,7 @@ public class DemoPracticeFormTests extends TestBase {
                     .setCity(testDataVariables.userCity)
                     .submitForm();
         });
+
         step("Проверка соответствия значения полей формы", () -> {
             demoPracticeFormPage
                     .checkContentVisibleTable()

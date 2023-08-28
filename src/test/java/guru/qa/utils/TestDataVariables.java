@@ -14,7 +14,7 @@ public class TestDataVariables {
             userSubject = testDataMethods.getRandomSubject(),
             userHobbie = testDataMethods.getRandomHobbie(),
             userCurrentAddress = testDataMethods.getRandomCurrentAddress(),
-            userPicture = "image.png",
+            userPicture = "cat.jpg",
             userState = testDataMethods.getRandomState(),
             userCity = testDataMethods.getRandomCity(userState),
             userFullName = userFirstName + " " + userLastName,
