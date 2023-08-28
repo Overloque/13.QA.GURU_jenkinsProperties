@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.provider.Arguments;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
@@ -25,10 +26,10 @@ public class TestBase {
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
+        Map<String, Object> value = new HashMap<>();
+        value.put("enableVNC", true);
+        value.put("enableVideo", true);
+        capabilities.setCapability("selenoid:options", value);
 
         Configuration.browserCapabilities = capabilities;
     }
