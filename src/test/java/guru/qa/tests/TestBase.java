@@ -21,13 +21,7 @@ public class TestBase {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = System.getProperty("browserSize");
         Configuration.pageLoadStrategy = "eager";
-        Configuration.browser = System.getProperty("browser");
-        Configuration.browserVersion = System.getProperty("browserVersion");
-
-        String selenoidUrl = System.getProperty("selenoidUrl");
-        String selenoidCredentials = System.getProperty("selenoidCredentials");
-
-        Configuration.remote = "https://" + selenoidCredentials + "@" + selenoidUrl + "/wd/hub";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         Map<String, Object> value = new HashMap<>();
