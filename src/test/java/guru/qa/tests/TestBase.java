@@ -21,6 +21,7 @@ public class TestBase {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = System.getProperty("browserSize");
         Configuration.pageLoadStrategy = "eager";
+        Configuration.browser = System.getProperty("browser");
         Configuration.browserVersion = System.getProperty("browserVersion");
 
         String selenoidUrl = System.getProperty("selenoidUrl");
