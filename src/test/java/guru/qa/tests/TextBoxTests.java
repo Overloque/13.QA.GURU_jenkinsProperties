@@ -22,11 +22,12 @@ public class TextBoxTests extends TestBase {
     @Link(value = "demoqa", url = "https://demoqa.com/")
     void checkFormTest() {
         step("Открытие сайта с формой для заполнения", () -> {
-            textBoxPage.openPage();
+            textBoxPage
+                    .openPage()
+                    .removeBanner();
         });
         step("Заполнение формы", () -> {
             textBoxPage
-                    .openPage()
                     .setFullName(testDataVariables.userFirstName + " " + testDataVariables.userLastName)
                     .setEmail(testDataVariables.userEmail)
                     .setCurrentAddress(testDataVariables.userCurrentAddress)
